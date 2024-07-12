@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Wave",
-    "slug": "wave",
+    "slug": "Wave",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -39,7 +39,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "dc63d86d-7691-4058-80e0-56e3e29c671b"
+        "projectId": "dc63d86d-7691-4058-80e0-56e3e29c671b"  
       }
     }
   }
