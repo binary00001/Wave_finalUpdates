@@ -6,8 +6,22 @@ import { useAuth } from '../context/authContext.js';
 import { useRouter } from 'expo-router';
 
 export default function ProfileScreen() {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const router = useRouter();
+
+  const handleLogout = () => {
+    // Implement logout functionality
+    logout(); // Example logout function from context
+    router.replace('/signIn'); // Example navigation to sign-in screen
+  };
+
+  const handleDeleteAccount = () => {
+    // Implement delete account functionality
+    Alert.alert('Delete Account', 'Are you sure you want to delete your account?', [
+      { text: 'Cancel', style: 'cancel' },
+      { text: 'Delete', onPress: () => handleFeatureNotAvailable() /* Implement delete logic */ },
+    ]);
+  };
 
   const handleFeatureNotAvailable = () => {
     Alert.alert('Feature under development');
@@ -15,14 +29,16 @@ export default function ProfileScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.profileContainer}>
-        <Image source={{ uri: user?.profileUrl }} style={styles.profileImage} />
-        <View style={styles.profileDetails}>
-          <Text style={styles.profileName}>{user?.username}</Text>
-          <Text style={styles.profileContact}>Active</Text>
-          <TouchableOpacity onPress={() => router.push('/home')} style={styles.iconButton}>
-            <Feather name="arrow-left" size={hp(3)} color="black" />
-          </TouchableOpacity>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => router.push('/home')} style={styles.iconButton}>
+          <Feather name="arrow-left" size={hp(3)} color="black" />
+        </TouchableOpacity>
+        <View style={styles.profileContainer}>
+          <View style={styles.profileDetails}>
+            <Text style={styles.profileName}>{user?.username}</Text>
+            <Text style={styles.profileContact}>Active</Text>
+          </View>
+          <Image source={{ uri: user?.profileUrl }} style={styles.profileImage} />
         </View>
       </View>
 
@@ -35,9 +51,6 @@ export default function ProfileScreen() {
           <MaterialCommunityIcons name="devices" size={24} color="black" />
           <Text style={styles.itemText}>Linked Devices</Text>
         </TouchableOpacity>
-      </View>
-
-      <View style={styles.section}>
         <TouchableOpacity onPress={handleFeatureNotAvailable} style={styles.item}>
           <MaterialCommunityIcons name="palette" size={24} color="black" />
           <Text style={styles.itemText}>Appearance</Text>
@@ -63,6 +76,17 @@ export default function ProfileScreen() {
           <Text style={styles.itemText}>Data Usage</Text>
         </TouchableOpacity>
       </View>
+
+      <View style={styles.section}>
+        <TouchableOpacity onPress={handleDeleteAccount} style={styles.item}>
+          <Feather name="user-x" size={24} color="black" />
+          <Text style={styles.itemText}>Delete Account</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleLogout} style={styles.item}>
+          <Feather name="log-out" size={24} color="black" />
+          <Text style={styles.itemText}>Logout</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -72,20 +96,28 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f5f5f5',
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    backgroundColor: '#fff',
+    marginBottom: 20,
+  },
   profileContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 20,
-    backgroundColor: '#fff',
-    marginBottom: 20,
   },
   profileImage: {
     width: 80,
     height: 80,
+    marginTop:30,
     borderRadius: 40,
   },
   profileDetails: {
     marginLeft: 20,
+    paddingRight: 15,
+    paddingTop:18,
   },
   profileName: {
     fontSize: 18,
@@ -112,3 +144,4 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+
