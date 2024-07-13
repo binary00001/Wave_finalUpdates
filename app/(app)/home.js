@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   messageText: { color: '#555555' },
   messageDetails: { alignItems: 'flex-end' },
   time: { color: '#555555', fontSize: 12 },
-  unreadCount: { backgroundColor: '#03B620', borderRadius: 10, paddingHorizontal: 5, marginTop: 5 },
+  unreadCount: { backgroundColor: '#00d1d1', borderRadius: 10, paddingHorizontal: 5, marginTop: 5 },
   unreadText: { color: 'white', fontSize: 12 },
   bottomBar: {
     flexDirection: 'row',
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -5,
     right: -5,
-    backgroundColor: '#03B620',
+    backgroundColor: '#00d1d1',
     borderRadius: 10,
     paddingHorizontal: 5,
     paddingVertical: 2,

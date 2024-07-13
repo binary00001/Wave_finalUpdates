@@ -104,7 +104,7 @@ export default function SignUp() {
                       ):(
                         <TouchableOpacity 
                         onPress={handleRegister}
-                        style={{height: hp(6.5), backgroundColor: '#03B620', height: hp(6.5), justifyContent: 'center', alignItems: 'center', borderRadius: 16 }} >
+                        style={{height: hp(6.5), backgroundColor: '#00d1d1', height: hp(6.5), justifyContent: 'center', alignItems: 'center', borderRadius: 16 }} >
                           <Text style={{fontSize: hp(2.7)}} className="text-white font-bold tracking-wider">
                             Create an Account
                           </Text>

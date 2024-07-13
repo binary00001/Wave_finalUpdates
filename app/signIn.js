@@ -87,7 +87,7 @@ export default function SignIn() {
                         <TouchableOpacity 
                         onPress={handleLogin}
                         style={{height: hp(6.5), 
-                        backgroundColor: '#03B620',
+                        backgroundColor: '#00d1d1',
                         height: hp(6.5), 
                         justifyContent: 'center', 
                         alignItems: 'center', 

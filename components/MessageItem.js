@@ -46,13 +46,13 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     padding: wp(3), // p-3 equivalent
     borderRadius: wp(2), // rounded-2xl equivalent
-    backgroundColor: '#ADD8E6', // Light blue for sent messages
+    backgroundColor: '#b3b3b3', // Light blue for sent messages
   },
   receivedMessage: {
     alignSelf: 'flex-start',
     padding: wp(3), // p-3 equivalent
     borderRadius: wp(2), // rounded-2xl equivalent
-    backgroundColor: '#FFA500', // Orange for received messages
+    backgroundColor: '#03B620', // Orange for received messages
   },
   sentText: {
     color: '#000', // Black text for sent messages
