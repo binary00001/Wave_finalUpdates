@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, Modal } from 'react-native';
 import { MaterialCommunityIcons, Ionicons, MaterialIcons, SimpleLineIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import { useAuth } from '../context/authContext.js';
 
 
 const StoriesScreen = () => {
   const [showStoryOverlay, setShowStoryOverlay] = useState(false);
   const [showOptionsModal, setShowOptionsModal] = useState(false);
   const router = useRouter();
+  const { user } = useAuth();
 
 
   const handleStoryClick = () => {
@@ -30,12 +32,12 @@ const StoriesScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-          <Image  style={styles.logo1} />
+        <TouchableOpacity onPress={() => router.push('profileScreen')}>
+          <Image style={styles.logo1} source={{uri:user?.profileUrl}} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Stories</Text>
         <View style={styles.headerIcons}>
-          <TouchableOpacity onPress={()=> router.push('camera')} style={styles.cameraIcon}>
+          <TouchableOpacity onPress={() => router.push('camera')} style={styles.cameraIcon}>
             <SimpleLineIcons name="camera" size={24} color="white" />
           </TouchableOpacity>
           <TouchableOpacity onPress={toggleOptionsModal} style={styles.optionsIcon}>
@@ -54,8 +56,8 @@ const StoriesScreen = () => {
       <View style={styles.sectionContainer}>
         <Text style={styles.sectionLabel}>My Story</Text>
         <View style={styles.myStoryContainer}>
-          <TouchableOpacity style={styles.addStoryContainer} onPress={() => navigation.navigate('Camera')}>
-            <Image /* source={require('./assets/P2.jpg')} */ style={styles.profileImage} />
+          <TouchableOpacity style={styles.addStoryContainer} onPress={() => router.push('camera')}>
+            <Image source={{uri: 'https://via.placeholder.com/50'}} style={styles.profileImage} />
             <View style={styles.addStoryBadge}>
               <SimpleLineIcons name="plus" size={20} color="white" />
             </View>
@@ -67,7 +69,7 @@ const StoriesScreen = () => {
         <View style={styles.recentUpdatesContainer}>
           <View style={styles.storiesContainer}>
             <TouchableOpacity style={[styles.story, styles.newStory]} onPress={handleStoryClick}>
-              <Image /* source={require('./assets/logo.png')} */ style={styles.storyImage} />
+              <Image source={{uri: 'https://via.placeholder.com/50'}} style={styles.storyImage} />
             </TouchableOpacity>
             <View style={styles.waveAccountContainer}>
               <View style={styles.waveAccountHeader}>
@@ -99,7 +101,7 @@ const StoriesScreen = () => {
       <View style={styles.bottomBar}>
         <TouchableOpacity
           style={styles.bottomBarItem}
-          onPress={()=> router.push('home')}
+          onPress={() => router.push('home')}
         >
           <Ionicons name="chatbubble" size={24} color="black" />
           <View style={styles.unreadBadge}>
@@ -109,14 +111,14 @@ const StoriesScreen = () => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.bottomBarItem}
-          onPress={()=> router.push('CallScreen')}
+          onPress={() => router.push('CallScreen')}
         >
           <MaterialCommunityIcons name="phone" size={24} color="black" />
           <Text style={styles.bottomBarText}>Calls</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.bottomBarItem}
-          onPress={()=> router.push('stories')}
+          onPress={() => router.push('stories')}
         >
           <MaterialIcons name="web-stories" size={24} color="black" />
           <Text style={styles.bottomBarText}>Stories</Text>
