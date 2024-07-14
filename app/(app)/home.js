@@ -87,11 +87,7 @@ export default function Home() {
             </View>
         )
       }
-    </View>
-    
-
-    //Obed's Ui design
-    
+    </View>    
 
   )
 };

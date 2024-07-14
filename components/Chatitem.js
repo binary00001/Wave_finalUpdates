@@ -25,8 +25,6 @@ export default function Chatitem({ item, router, noBorder , currentUser}) {
     return unsub;
   },[]);
 
-  //console.log('last message:', lastMessage);
-
   const openChatRoom = () => {
     router.push({ pathname: '/chatRoom', params: { ...item } });
   };

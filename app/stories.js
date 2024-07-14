@@ -37,11 +37,11 @@ const StoriesScreen = () => {
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Stories</Text>
         <View style={styles.headerIcons}>
-          <TouchableOpacity onPress={() => router.push('camera')} style={styles.cameraIcon}>
-            <SimpleLineIcons name="camera" size={24} color="white" />
+          <TouchableOpacity onPress={() => router.push('./camera')} style={styles.cameraIcon}>
+            <SimpleLineIcons name="camera" size={24} color="black" />
           </TouchableOpacity>
           <TouchableOpacity onPress={toggleOptionsModal} style={styles.optionsIcon}>
-            <MaterialCommunityIcons name="dots-vertical" size={24} color="white" />
+            <MaterialCommunityIcons name="dots-vertical" size={24} color="black" />
           </TouchableOpacity>
         </View>
       </View>
@@ -56,7 +56,7 @@ const StoriesScreen = () => {
       <View style={styles.sectionContainer}>
         <Text style={styles.sectionLabel}>My Story</Text>
         <View style={styles.myStoryContainer}>
-          <TouchableOpacity style={styles.addStoryContainer} onPress={() => router.push('camera')}>
+          <TouchableOpacity style={styles.addStoryContainer} onPress={() => router.push('StoriesUpdate')}>
             <Image source={{uri: 'https://via.placeholder.com/50'}} style={styles.profileImage} />
             <View style={styles.addStoryBadge}>
               <SimpleLineIcons name="plus" size={20} color="white" />
@@ -72,7 +72,7 @@ const StoriesScreen = () => {
               <Image source={{uri: 'https://via.placeholder.com/50'}} style={styles.storyImage} />
             </TouchableOpacity>
             <View style={styles.waveAccountContainer}>
-              <View style={styles.waveAccountHeader}>
+              <View style={styles.waveAccountHeader} >
                 <Text style={styles.waveAccountText}>Wave</Text>
                 <MaterialCommunityIcons name="check-decagram" size={14} color="#03B620" />
               </View>

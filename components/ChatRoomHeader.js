@@ -33,8 +33,8 @@ export default function ChatRoomHeader({ user, router }) {
         ),
         headerRight: () => (
           <View style={styles.headerRightContainer}>
-            <Ionicons name="call" size={hp(2.8)} color="#b3b3b3" />
-            <Ionicons name="videocam" size={hp(2.8)} color="#b3b3b3" />
+            <Ionicons onPress={() => router.push('AudioCall')} name="call" size={hp(2.8)} color="#b3b3b3" />
+            <Ionicons onPress={() => router.push('VideoCall')} name="videocam" size={hp(2.8)} color="#b3b3b3" />
             <TouchableOpacity onPress={handleMoreOptions}>
               <Feather name="more-vertical" size={hp(2.8)} color="#737373" />
             </TouchableOpacity>
